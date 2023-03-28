@@ -1,5 +1,7 @@
 github.com/AgoraIO-Community/go-tokenbuilder v1.0.0 h1:R6L8a5u+p1qGpY5lNyQ19vRyDzIwhhqQnRlg9AAbqmA=
 github.com/AgoraIO-Community/go-tokenbuilder v1.0.0/go.mod h1:xqPdaiFG00M1hNN/CCYh8j+NTmkiJsQtqYdf4YAlncA=
+github.com/AgoraIO/Tools/DynamicKey/AgoraDynamicKey/go/src v0.0.0-20230202083000-127831aa0f5d h1:jX+i40GIfwRQWcrhGofMk2+FrnzEMgEYkz/lOkqinnQ=
+github.com/AgoraIO/Tools/DynamicKey/AgoraDynamicKey/go/src v0.0.0-20230202083000-127831aa0f5d/go.mod h1:4bXIK0ntDk9CqAXobmomWd7dedbfNv/aaIpmpqqzt+A=
 github.com/bytedance/sonic v1.5.0/go.mod h1:ED5hyg4y6t3/9Ku1R6dU/4KyJ48DZ4jPhfY1O2AihPM=
 github.com/bytedance/sonic v1.8.0 h1:ea0Xadu+sHlu7x5O3gKhRpQ1IKiMrSiHttPF0ybECuA=
 github.com/bytedance/sonic v1.8.0/go.mod h1:i736AoUSYt75HyZLoJW9ERYxcy6eaN6h4BZXU064P/U=

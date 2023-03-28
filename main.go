@@ -44,7 +44,6 @@ func main() {
 			"message": "pong",
 		})
 	})
-
 	api.GET("rtc/:channelName/:role/:tokenType/:uid/", getRtcToken)
 	api.GET("rtm/:uid/", getRtmToken)
 	api.GET("rte/:channelName/:role/:tokenType/:uid/", getBothTokens)
@@ -55,8 +54,7 @@ func main() {
 func getRtcToken(c *gin.Context) {
 	log.Printf("rtc token\n")
 	// get param values
-	channelName, tokentype, uidStr, role, expireTimestamp, err := parseRtcParams(c)
-
+	channelName, tokenType, uidStr, role, expireTimestamp, err := parseRtcParams(c)
 	if err != nil {
 		c.Error(err)
 		c.AbortWithStatusJSON(400, gin.H{
@@ -66,7 +64,7 @@ func getRtcToken(c *gin.Context) {
 		return
 	}
 
-	rtcToken, tokenErr := generateRtcToken(channelName, uidStr, tokentype, role, expireTimestamp)
+	rtcToken, tokenErr := generateRtcToken(channelName, uidStr, tokenType, role, expireTimestamp)
 
 	if tokenErr != nil {
 		log.Println(tokenErr) // token failed to generate
@@ -160,10 +158,10 @@ func getBothTokens(c *gin.Context) {
 }
 
 func parseRtcParams(c *gin.Context) (channelName, tokentype, uidStr string, role rtctokenbuilder.Role, expireTimestamp uint32, err error) {
-	// get param values
+
 	channelName = c.Param("channelName")
 	roleStr := c.Param("role")
-	tokentype = c.Param("tokentype")
+	tokentype = c.Param("tokenType")
 	uidStr = c.Param("uid")
 	expireTime := c.DefaultQuery("expiry", "3600")
 
@@ -208,7 +206,7 @@ func parseRtmParams(c *gin.Context) (uidStr string, expireTimestamp uint32, err 
 }
 
 func generateRtcToken(channelName, uidStr, tokentype string, role rtctokenbuilder.Role, expireTimestamp uint32) (rtcToken string, err error) {
-
+	//tokentype = "userAccount"
 	if tokentype == "userAccount" {
 		log.Printf("Building Token with userAccount: %s\n", uidStr)
 		rtcToken, err = rtctokenbuilder.BuildTokenWithUserAccount(appID, appCertificate, channelName, uidStr, role, expireTimestamp)
